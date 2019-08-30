@@ -14,8 +14,7 @@ public class Sandwich {
     /**
      * No args constructor for use in serialization
      */
-    public Sandwich() {
-    }
+    public Sandwich() {}
 
     public Sandwich(String mainName, List<String> alsoKnownAs, String placeOfOrigin, String description, String image, List<String> ingredients) {
         this.mainName = mainName;
@@ -24,6 +23,10 @@ public class Sandwich {
         this.description = description;
         this.image = image;
         this.ingredients = ingredients;
+    }
+
+    private String getStringValue(final String s) {
+        return s != null && !s.trim().equals("") ? s : "Not Specified";
     }
 
     public String getMainName() {
@@ -47,7 +50,7 @@ public class Sandwich {
     }
 
     public void setPlaceOfOrigin(String placeOfOrigin) {
-        this.placeOfOrigin = placeOfOrigin;
+        this.placeOfOrigin = getStringValue(placeOfOrigin);
     }
 
     public String getDescription() {
@@ -55,7 +58,7 @@ public class Sandwich {
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        this.description = getStringValue(description);
     }
 
     public String getImage() {
